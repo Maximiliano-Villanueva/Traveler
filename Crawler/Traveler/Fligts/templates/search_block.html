@@ -1,0 +1,66 @@
+<form id = 'search-form' method = "POST" action = "{% url 'finder' %}">
+    {% csrf_token %}
+    <div class="form-wrapper">
+        <div class="flex-box">
+            <div class="flex-col">
+                <div class = 'form-field-wrapper'>
+                    <div class="block">
+                        <label class="form-label" for={{form.origin_airport.auto_id}}>{{form.origin_airport.label}}</label>
+                        <div class = 'form-field'>{{form.origin_airport}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col">
+                <div class = 'form-field-wrapper'>
+                    <div class="block">
+                        <label class="form-label" for={{form.destination_airport.auto_id}}>{{form.destination_airport.label}}</label>
+                        <div class = 'form-field'>{{form.destination_airport}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col-half">
+                <div class = 'form-field-wrapper'>
+                    <div class="block">
+                        <label class="form-label" for={{form.departure_date.auto_id}}>{{form.departure_date.label}}</label>
+                            
+                        {{form.departure_date}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col-half">
+                <div class = 'form-field-wrapper'>
+                    <div class="block">
+                        <label class="form-label" for={{form.arrival_date.auto_id}}>{{form.arrival_date.label}}</label>
+                        {{form.arrival_date}}
+                    </div>
+                </div>
+            </div>
+            <div class="flex-col">
+                <div class="submit-wrapper">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</form>
+
+<script>
+
+    $(function() {
+        $( ".datetimepicker-input" ).datepicker({ dateFormat: 'dd/mm/yy' });
+    });
+
+    $(function() {
+        /*remove error class after 1.5 seconds*/
+        $("#search-form").on('focus', '.error', function(e){
+            setTimeout(function(elem){
+                $(elem).removeClass('error');
+            }, 1500, this);
+            
+        });
+    });
+</script>

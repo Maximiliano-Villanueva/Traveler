@@ -1,0 +1,11 @@
+Django
+mysqlclient
+django-mysql
+proxybroker
+pycountry
+beautifulsoup4
+requests
+lxml
+django-bootstrap4
+django-bootstrap-datepicker-plus
+python-dateutil

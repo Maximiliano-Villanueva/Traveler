@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+
+    travel-crawler:
+        restart: always
+        container_name : travel-crawler
+        build: ./Crawler
+        tty: true
+        ports: 
+            - '9005:8080'
+
+        volumes:
+
+          - type: bind
+            source : E:\python-code\Traveler\Volumes\Traveler
+            target : /home/shared-files/code
+        depends_on:
+            - db-traveler
+            
+    db-traveler:
+        image: mariadb
+        restart: always
+        container_name : db-traveler
+        ports: 
+            - '3306:3306'
+
+        environment:
+            MARIADB_ROOT_PASSWORD: pwd
+            MARIADB_DATABASE : travel-crawler
+            MARIADB_USER : user
+            MARIADB_PASSWORD : password
+        #avoid error for STRICT_TRANS_TABLES (error was thrown if no default value was assigned to primary key)
+        command: mysqld --sql_mode=""
+
+        expose:
+            - '3306:3306'
+        volumes:
+          # persist data files into `datadir` volume managed by docker
+          - datadir:/var/lib/mysql
+          # bind-mount any sql files that should be run while initializing
+          - ./tables.sql:/docker-entrypoint-initdb.d/schema.sql
+
+volumes:
+    datadir:
+    
+networks:
+    net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 212.172.1.0/30
+    host:
+        name: host
+        external: true
+
+

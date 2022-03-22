@@ -1,0 +1,26 @@
+<html>
+    <head>
+        {% load static %}
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+        <title>Base sample</title>
+        <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/body.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/search-form.css' %}">
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+        
+    </head>
+
+    <body >
+        {% include "common/header.html" %}
+        <main id='main_content' class = "view intro-2">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        {% include "common/footer.html" %}
+    </body>
+
+</html>

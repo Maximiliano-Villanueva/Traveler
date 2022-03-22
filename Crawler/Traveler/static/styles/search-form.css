@@ -1,0 +1,103 @@
+
+/*
+################################
+# START HIERARCHYCALY ORDERED
+################################
+*/
+    div.form-wrapper{
+        width: 90%;
+        padding: 1%;
+
+        margin: auto;
+        background: #fc0;
+    }
+
+    .flex-box{
+        display:flex;
+        background: #fff;
+    }
+    .flex-col, .flex-col-half{
+        display:inline-flex;
+    }
+    .flex-col{
+        flex: 1;
+    }
+    .flex-col-half{
+        flex:0.5;
+    }
+
+    .form-field-wrapper{
+        align-self: flex-end;
+    }
+
+    .submit-wrapper{
+        padding: 2.5%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .block{
+        display: block;
+    }
+    .form-label{
+        font-size: 14px;
+    }
+
+    .form-field input{
+        height: calc(1.5em + 0.75rem + 2px);
+        border: none;
+        border-right: 1px solid #999;
+        font-size: 16px;
+    }
+
+    div.form-field-wrapper div.block div.date input.form-control{
+        border: none;
+        border-right: 1px solid #999;
+    }
+
+/*
+################################
+# END HIERARCHYCALY ORDERED
+################################
+*/
+
+/*
+################################
+# START CLASS SPECIFIC STYLING
+################################
+*/
+
+
+    .error{
+        color:red !important;
+        border: 1px solid !important;
+        border-color:red !important;
+    }
+
+/*
+################################
+# END CLASS SPECIFIC STYLING
+################################
+*/
+
+
+/*
+################################
+# START FILTER BY TAG
+################################
+*/
+    button[type="submit"]{
+        border-radius: 25px;
+        width: 100%;
+        height: 100%;
+        background-color: #4d4d4d;
+        border-color: #4d4d4d;
+        font-weight:bold;
+        color:#fff;
+    }
+
+/*
+################################
+# END FILTER BY TAG
+################################
+*/

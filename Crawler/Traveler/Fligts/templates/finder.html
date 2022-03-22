@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+{% block content %}
+
+{% include "search_block.html" with form=form%}
+
+    <h2>Test Results</h2>
+    <div>
+        <ul>
+            {% for i in elements %}
+                <li>item: {{i}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
